@@ -12,18 +12,25 @@ In this assignment, you will learn more about asymptotic notation, parallelism, 
 1. (2 pts ea) **Asymptotic notation** (12 pts)
 
   - 1a. Is $2^{n+1} \in O(2^n)$? Why or why not? 
-.  
-.  
+.  It is True. It is true because there is a value for c where g(n) is greater than or equal to f(n). For instance, if n = 1 and c = 2.
+2*g(n) = 2 * 2^1 which is 4
+f(n) = 2^2 which is 4
+For f to be Big O of g, fn <= c * g(n) which is True.
 .  
 .  
 . 
   - 1b. Is $2^{2^n} \in O(2^n)$? Why or why not?     
+.  False. If we take the assumption that f is Big O of g, then f(n) <= c * g(n)
+By taking the log of eachside you have ln2 * 2n <= lnc + ln2 * n
+then, 2n <= lnc + n
+n <= lnc 
+There is no value that holds true for this statement. The growth rate of Linear growth is much faster than logarithmic.
 .  
 .  
 .  
 .  
-.  
-  - 1c. Is $n^{1.01} \in O(\mathrm{log}^2 n)$?    
+  - 1c. Is $n^{1.01} \in O(\mathrm{log}^2 n)$?
+      
 .  
 .  
 .  
