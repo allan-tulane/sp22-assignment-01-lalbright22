@@ -9,9 +9,8 @@ def foo(x):
     if (x <= 1):
         return x
     else:
-        ra, rb = (foo(x - 1)), (foo(x - 2))
-        ra+rb
-        pass
+        ra,rb = (foo(x-1)),(foo(x-2))
+        return ra+rb
 
 
 def longest_run(mylist, key):
