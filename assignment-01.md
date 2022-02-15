@@ -30,24 +30,25 @@ There is no value that holds true for this statement. The growth rate of Linear 
 .  
 .  
   - 1c. Is $n^{1.01} \in O(\mathrm{log}^2 n)$?
-      
+ False. Taking the limit of f(n)/g(n) we can perform L'Hopitals rule. It shows that the limit approaches infinity with no asymptote. f(n) does not asymptotically dominate g(n), thus f is not Big O of g. Rather, f is Big Omega of g     
 .  
 .  
 .  
 .  
 
   - 1d. Is $n^{1.01} \in \Omega(\mathrm{log}^2 n)$?  
-.  
+.  True. Taking our findings from the previous problem, f is Big Omega of g. This is because the the limit quotient approaches infinity.
 .  
 .  
 .  
   - 1e. Is $\sqrt{n} \in O((\mathrm{log} n)^3)$?  
-.  
+.  True. Taking the derivative of both f(n) and g(n) we can do the limit quotient. In the quotient we see that it aproaches zero, which means that f asymptotically dominates g. Thus, f is Big O of g because f(n)<= c * g(n)
+The derivatives of each function cross at about where the x-value equals 3.
 .  
 .  
 .  
   - 1f. Is $\sqrt{n} \in \Omega((\mathrm{log} n)^3)$?  
-.  
+.  False. Taking our findings from the previous problem, f is Big O of g. Thus, f can not be Big Omega of g.
 
 
 2. **SPARC to Python** (12 pts)
@@ -68,7 +69,7 @@ $$
   - 2a. (6 pts) Translate this to Python code -- fill in the `def foo` method in `main.py`  
 
   - 2b. (6 pts) What does this function do, in your own words?  
-
+The function takes an inputted value in def foo. That value is then taken by the variables ra and rb where they are assigned the def foo value -1 and -2 respectively. These values represent the fubinacci sequence as the previous two values are added togethor to make the new value. 
 .  
 .  
 .  
