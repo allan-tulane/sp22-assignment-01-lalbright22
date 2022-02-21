@@ -48,6 +48,49 @@ def longest_run_recursive(mylist, key):
       return Result(1,1,1,T)
     else:
       return Result(0,0,0,F)
+  else:
+    mid = len(mylist)//2
+
+    left_size = longest_run_recursive(mylist[:mid], mylist[mid])
+    right_size = longest_run_recursive(mylist[(mid + 1):], mylist[mid])
+
+    left = left_size.longest_size
+    right = right_size.longest_size
+    longest = None
+    entire = None
+
+    if left_size.is_entire_range and mylist[mid] == mylist[0] and mylist[mid] == mylist[-1]:
+      longest = len(mylist)
+      entire = True
+    elif left_size.is_entire_range and right_size.is_entire_range:
+      longest = max(right, left)
+      entire = False
+    elif left_size.is_entire_range and not right_size.is_entire_range:
+      if mylist[mid] == mylist[0]:
+        longest = left + 1
+        entire = False
+      else:
+        longest = left
+        entire = False
+    elif right_size.is_entire_range and not left_size.is_entire_range:
+      if mylist[mid] == mylist[-1]:
+        longest = right + 1
+        entire = False
+      else:
+        longest = right
+        entire = False
+    else:
+      longest = max(left, right)
+      if mylist[mid] == mylist[mid - 1]:
+        longest += 1
+      if mylist[mid] == mylist[mid + 1]:
+        longest += 1
+      entire = False
+
+  return Result(left, right, longest, entire)
+      
+
+    
 
 
 ## Feel free to add your own tests here.
