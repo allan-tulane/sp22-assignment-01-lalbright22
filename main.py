@@ -45,46 +45,30 @@ class Result:
 def longest_run_recursive(mylist, key):
   if len(mylist) == 1:
     if mylist[0] == key:
-      return Result(1,1,1,T)
+      return Result(1,1,1,True)
     else:
-      return Result(0,0,0,F)
+      return Result(0,0,0,False)
   else:
     mid = len(mylist)//2
 
-    left_size = longest_run_recursive(mylist[:mid], mylist[mid])
-    right_size = longest_run_recursive(mylist[(mid + 1):], mylist[mid])
+    ls = longest_run_recursive(mylist[:mid], key)
+    rs = longest_run_recursive(mylist[mid:],key)
 
-    left = left_size.longest_size
-    right = right_size.longest_size
+    left = ls.longest_size
+    right = rs.longest_size
     longest = None
     entire = None
 
-    if left_size.is_entire_range and mylist[mid] == mylist[0] and mylist[mid] == mylist[-1]:
+    if ls.is_entire_range and rs.is_entire_range:
       longest = len(mylist)
       entire = True
-    elif left_size.is_entire_range and right_size.is_entire_range:
-      longest = max(right, left)
+    elif ls.is_entire_range and not rs.is_entire_range:
+      longest = left + rs.left_size
       entire = False
-    elif left_size.is_entire_range and not right_size.is_entire_range:
-      if mylist[mid] == mylist[0]:
-        longest = left + 1
-        entire = False
-      else:
-        longest = left
-        entire = False
-    elif right_size.is_entire_range and not left_size.is_entire_range:
-      if mylist[mid] == mylist[-1]:
-        longest = right + 1
-        entire = False
-      else:
-        longest = right
-        entire = False
+    elif rs.is_entire_range and not ls.is_entire_range:
+      longest = right + ls.right_size
     else:
       longest = max(left, right)
-      if mylist[mid] == mylist[mid - 1]:
-        longest += 1
-      if mylist[mid] == mylist[mid + 1]:
-        longest += 1
       entire = False
 
   return Result(left, right, longest, entire)
