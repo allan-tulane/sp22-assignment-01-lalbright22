@@ -60,6 +60,8 @@ def longest_run_recursive(mylist, key):
     entire = None
 
     if ls.is_entire_range and rs.is_entire_range:
+      left = len(mylist)
+      right = len(mylist)
       longest = len(mylist)
       entire = True
     elif ls.is_entire_range and not rs.is_entire_range:

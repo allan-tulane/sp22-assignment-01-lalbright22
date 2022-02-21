@@ -2,7 +2,7 @@
 
 # CMPS 2200 Assignment 1
 
-**Name:**_________________________
+**Name:** Luke Albright
 
 
 In this assignment, you will learn more about asymptotic notation, parallelism, functional languages, and algorithmic cost models. As in the recitation, some of your answer will go here and some will go in `main.py`. You are welcome to edit this `assignment-01.md` file directly, or print and fill in by hand. If you do the latter, please scan to a file `assignment-01.pdf` and push to your github repository. 
@@ -100,6 +100,7 @@ E.g., `longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3`
 
   - 3b. (4 pts) What is the Work and Span of this implementation?  
 
+The work of this implementation is O(n). There is no sorting function so the runtime is linear.
 .  
 .  
 .  
@@ -115,7 +116,7 @@ E.g., `longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3`
 
   - 3d. (4 pts) What is the Work and Span of this sequential algorithm?  
 .  
-.  
+.  The work is O(n^2) because this is a divide and conquer algorithm, which operates very similar to a merge sort algorithm. However, this algorithm does not merge which is why the work is not logn. 
 .  
 .  
 .  
@@ -129,7 +130,7 @@ E.g., `longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3`
 
   - 3e. (4 pts) Assume that we parallelize in a similar way we did with `sum_list_recursive`. That is, each recursive call spawns a new thread. What is the Work and Span of this algorithm?  
 
-.  
+.  I do not know.
 .  
 .  
 .  
